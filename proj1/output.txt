@@ -1,0 +1,15 @@
+Test scoping
+4 
+1 
+This function, testOverload, takes a type int and prints it 
+3 
+Test if Go permits operator overloading
+1 
+2 
+Test implicit type conversion 
+1 
+Test for aliases 
+e: 4 f: 4 
+e: 5 f: 5 
+d: 5 g: 0xc42000a338 *g: 5
+d: 5 g: 0xc42000a338 *g: 5
