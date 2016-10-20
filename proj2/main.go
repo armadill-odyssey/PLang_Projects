@@ -40,6 +40,7 @@ var numbers = [...]string{
 func (n enumInt) String() string { return numbers[n] }
 
 func main() {
+	// #2 cont.
 	// we can assign the above constants to a type enumInt
 	var test1 enumInt = ONE
 	// Go will also cast an int to an enumInt
@@ -51,5 +52,46 @@ func main() {
 	fmt.Println(test2) // prints "TWO"
 	// This will throw an out of bounds error becuase it can't the index '8' does not exist in the numbers array
 	fmt.Println(test3)
+	fmt.Println("")
 
+	//#3 Go has static typing.
+	var x int = 24
+
+	fmt.Println(x)
+	// var x int = "Hello!"
+	//- Does not compile: .\main.go:43: cannot use "Hello!" (type string) as type int in assignment
+	// If Go used dynamic typing this wouldn't cause an error until run time
+	fmt.Println("")
+
+	//#4 Go does indeed have short-circuit evaluation; the boolean value of 'shortcircuittest' is never evaluated because a is false.
+	a := false
+	if a && shortcircuittest() {
+		fmt.Println("This will print if something goes horribly wrong.")
+	} else {
+		fmt.Println("This ALONE will print if everything is ok.")
+	}
+
+	fmt.Println("")
+
+	// #5
+	// Golang performs applicative order evaluation
+	// If it was normal order, it would copy the fn call 'double(2)' to each x in the square method.
+	// Therefore making two calls to the double method, so "Doubling" would be printed twice
+	// But since Golang is applicative order, double(2) is evaluated first and then that value is passed on to the square() method
+	result := square(double(2))
+	fmt.Println(result)
+}
+
+func shortcircuittest() bool {
+	fmt.Println("This will print of the second statement is evaluated.")
+	return true
+}
+
+func double(x int) int {
+	fmt.Println("Doubling")
+	return x + x
+}
+func square(x int) int {
+	fmt.Println("Squaring")
+	return x * x
 }

@@ -1,0 +1,11 @@
+ONE
+TWO
+%!v(PANIC=runtime error: index out of range)
+
+24
+
+This ALONE will print if everything is ok.
+
+Doubling
+Squaring
+16
